@@ -1,5 +1,9 @@
-const {flattenDeep} = require('lodash');
+const http = require('http');
 
-const items = [1, [2, [3, 4]]]
-const newItems = flattenDeep(items);
-console.log(newItems);
+const requestListener = function (req, res) {
+    res.writeHead(200);
+    res.end('Hello, World!');
+}
+
+const server = http.createServer(requestListener);
+server.listen(8080);
